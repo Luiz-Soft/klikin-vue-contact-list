@@ -1,0 +1,26 @@
+{
+  "contact": {
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "phoneNumber": "Número de Teléfono",
+    "email": "Correo Electrónico",
+    "addPhone": "Agregar Teléfono",
+    "addEmail": "Agregar Correo",
+    "cancel": "Cancelar",
+    "save": "Guardar"
+  },
+  "contactList": {
+    "searchPlaceholder": "Buscar contacto...",
+    "newContactButton": "Nuevo Contacto"
+  },
+  "validation": {
+    "email": "El correo electrónico debe ser válido",
+    "phone": "El número de teléfono debe ser válido",
+    "required": "Este campo es obligatorio"
+  },
+  "languageSwitcher": {
+    "selectLanguage": "Idioma",
+    "title": "Seleccionar Idioma",
+    "close": "Cerrar"
+  }
+}

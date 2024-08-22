@@ -4,13 +4,15 @@
       id="search-add-container"
       class="search-add-container"
     >
+      <LanguageSwitcher /><!-- This language switcher component is here just because there is no navbar component yet-->
       <input 
         id="search-contact" 
         v-model="searchQuery"
         type="text" 
-        placeholder="Search contact..." 
+        :placeholder="$t('contactList.searchPlaceholder')" 
         autofocus 
       >
+     
       <v-btn
         color="primary"
         dark
@@ -19,7 +21,7 @@
       >
         <v-icon left>
           mdi-plus
-        </v-icon>         New Contact
+        </v-icon> {{ $t('contactList.newContactButton') }}
       </v-btn>
     </div>
     <div id="contacts-container">
@@ -42,12 +44,14 @@
 <script>
 import Contact from './Contact.vue'; 
 import CreateContactModal from './CreateContactModal.vue';
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue'; // Import the LanguageSwitcher
 
 export default {
   name: "ContactList",
   components: {
     Contact,
-    CreateContactModal,  
+    CreateContactModal,
+    LanguageSwitcher,  // Register the LanguageSwitcher component
   },
   props: {
     contacts: {
@@ -73,7 +77,6 @@ export default {
         );
       });
     },
-  
   },
   methods: {
     addContact(newContact) {

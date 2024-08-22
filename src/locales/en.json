@@ -1,0 +1,27 @@
+{
+    "contact": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "addPhone": "Add Phone",
+      "addEmail": "Add Email",
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "contactList": {
+        "searchPlaceholder": "Search contact...",
+        "newContactButton": "New Contact"
+    },
+    "validation": {
+        "email": "E-mail must be valid",
+        "phone": "Phone number must be valid",
+        "required": "This field is required"
+      },
+      "languageSwitcher": {
+        "selectLanguage": "Language",
+        "title": "Select Language",
+        "close": "Close"
+      }
+  }
+  

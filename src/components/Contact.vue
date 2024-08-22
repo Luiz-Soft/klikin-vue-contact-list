@@ -11,16 +11,18 @@
       <v-form ref="form">
         <v-text-field
           v-model="editedContact.firstname"
-          label="First Name"
+          :label="$t('contact.firstName')"
           :readonly="!isEditing"
           dense
           outlined
+          :rules="[requiredRule]"
           class="custom-input-field"
         />
         <v-text-field
           v-model="editedContact.lastname"
-          label="Last Name"
+          :label="$t('contact.lastName')"
           outlined
+          :rules="[requiredRule]"
           :readonly="!isEditing"
           dense
           class="custom-input-field"
@@ -38,12 +40,12 @@
             <v-col>
               <v-text-field
                 :value="phone"
-                label="Phone Number"
+                :label="$t('contact.phoneNumber')"
                 outlined
                 :readonly="!isEditing"
                 dense
                 class="custom-input-field"
-                :rules="[phoneRule]"
+                :rules="[phoneRule, requiredRule]"
                 @input="updatePhoneNumber(index, $event)"
               />
             </v-col>
@@ -73,12 +75,12 @@
             <v-col>
               <v-text-field
                 :value="email"
-                label="Email"
+                :label="$t('contact.email')"
                 outlined
                 :readonly="!isEditing"
                 dense
                 class="custom-input-field"
-                :rules="[emailRule]"
+                :rules="[emailRule, requiredRule]"
                 @input="updateEmail(index, $event)"
               />
             </v-col>
@@ -106,7 +108,7 @@
           >
             <v-icon left>
               mdi-plus
-            </v-icon> Add Phone
+            </v-icon> {{ $t('contact.addPhone') }}
           </v-btn>
 
           <v-btn
@@ -118,7 +120,7 @@
           >
             <v-icon left>
               mdi-plus
-            </v-icon> Add Email
+            </v-icon> {{ $t('contact.addEmail') }}
           </v-btn>
         </v-row>
         <v-row
@@ -149,24 +151,26 @@
         text
         @click="cancelEdit"
       >
-        Cancel
+        {{ $t('contact.cancel') }}
       </v-btn>
       <v-btn
         color="blue darken-1"
         text
         @click="saveContact"
       >
-        Save
+        {{ $t('contact.save') }}
       </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
-
-
 <script>
+import { validationMixin } from '@/mixins/validationMixin';
+
+
 export default {
   name: "Contact",
+  mixins: [validationMixin],
   props: {
     contact: {
       type: Object,
@@ -177,8 +181,6 @@ export default {
     return {
       isEditing: false,
       editedContact: JSON.parse(JSON.stringify(this.contact)), // Create a deep copy of the contact
-      emailRule: (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      phoneRule: (v) => /^[0-9]*$/.test(v) || 'Phone number must be valid',
     };
   },
   watch: {
@@ -224,6 +226,34 @@ export default {
   },
 };
 </script>
+
+<style>
+.custom-card {
+  padding: 16px;
+  margin-bottom: 16px;
+  margin: 10px;
+  min-width: 300px;
+}
+
+.custom-title {
+  text-align: center;
+  font-size: 24px;
+}
+
+.custom-input-field {
+  margin-bottom: 16px;
+}
+
+.add-buttons-row {
+  justify-content: center;
+  padding-bottom: 35px;
+}
+
+.custom-button {
+margin: 5px;
+}
+
+</style>
 
 <style>
 .custom-card {

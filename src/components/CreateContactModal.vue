@@ -15,11 +15,13 @@
             v-model="contactForm.firstname"
             label="First Name"
             required
+            :rules="[requiredRule]"
           />
           <v-text-field
             v-model="contactForm.lastname"
             label="Last Name"
             required
+            :rules="[requiredRule]"
           />
 
           <div
@@ -32,6 +34,7 @@
                   v-model="contactForm.phoneNumber[index]"
                   label="Phone Number"
                   required
+                  :rules="[requiredRule, phoneRule]"
                 />
               </v-col>
               <v-col cols="auto">
@@ -56,7 +59,7 @@
                   v-model="contactForm.email[index]"
                   label="Email"
                   required
-                  :rules="[emailRule]"
+                  :rules="[requiredRule, emailRule]"
                 />
               </v-col>
               <v-col cols="auto">
@@ -71,7 +74,6 @@
             </v-row>
           </div>
 
-     
           <v-row
             justify="center"
             class="add-buttons-row"
@@ -89,7 +91,6 @@
 
             <v-btn
               class="custom-buttom"
-
               dark
               rounded
               @click="addEmail"
@@ -124,8 +125,11 @@
 </template>
 
 <script>
+import { validationMixin } from '@/mixins/validationMixin';
+
 export default {
   name: "CreateContactModal",
+  mixins: [validationMixin],
   props: {
     dialog: Boolean,
     contact: Object,
@@ -134,7 +138,6 @@ export default {
     return {
       contactForm: this.resetForm(),
       isEditing: false,
-      emailRule: (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     };
   },
   watch: {
@@ -192,7 +195,7 @@ export default {
 </script>
 
 <style>
-.custom-buttom{
+.custom-buttom {
   margin: 5px;
 }
 </style>
