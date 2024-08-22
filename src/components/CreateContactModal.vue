@@ -1,25 +1,28 @@
 <template>
   <v-dialog
+    id="create-contact-modal"
     v-model="dialog"
     max-width="600px"
     persistent
   >
     <v-card>
       <v-card-title>
-        <span class="text-h5">{{ isEditing ? 'Edit Contact' : 'Add New Contact' }}</span>
+        <span class="text-h5">{{ isEditing ? $t('createContactModal.title.edit') : $t('createContactModal.title.add') }}</span>
       </v-card-title>
 
       <v-card-text>
         <v-form ref="form">
           <v-text-field
+            id="contact-firstname-input"
             v-model="contactForm.firstname"
-            label="First Name"
+            :label="$t('createContactModal.form.firstName')"
             required
             :rules="[requiredRule]"
           />
           <v-text-field
+            id="contact-lastname-input"
             v-model="contactForm.lastname"
-            label="Last Name"
+            :label="$t('createContactModal.form.lastName')"
             required
             :rules="[requiredRule]"
           />
@@ -31,14 +34,16 @@
             <v-row align="center">
               <v-col>
                 <v-text-field
+                  :id="'phone-input-' + index"
                   v-model="contactForm.phoneNumber[index]"
-                  label="Phone Number"
+                  :label="$t('createContactModal.form.phoneNumber')"
                   required
                   :rules="[requiredRule, phoneRule]"
                 />
               </v-col>
               <v-col cols="auto">
                 <v-btn
+                  :id="'remove-phone-' + index"
                   icon
                   color="red"
                   @click="removePhoneNumber(index)"
@@ -56,14 +61,16 @@
             <v-row align="center">
               <v-col>
                 <v-text-field
+                  :id="'email-input-' + index"
                   v-model="contactForm.email[index]"
-                  label="Email"
+                  :label="$t('createContactModal.form.email')"
                   required
                   :rules="[requiredRule, emailRule]"
                 />
               </v-col>
               <v-col cols="auto">
                 <v-btn
+                  :id="'remove-email-' + index"
                   icon
                   color="red"
                   @click="removeEmail(index)"
@@ -79,6 +86,7 @@
             class="add-buttons-row"
           >
             <v-btn
+              id="add-phone-button"
               class="custom-buttom"
               dark
               rounded
@@ -86,10 +94,11 @@
             >
               <v-icon left>
                 mdi-plus
-              </v-icon> Add Phone
+              </v-icon> {{ $t('createContactModal.buttons.addPhone') }}
             </v-btn>
 
             <v-btn
+              id="add-email-button"
               class="custom-buttom"
               dark
               rounded
@@ -97,7 +106,7 @@
             >
               <v-icon left>
                 mdi-plus
-              </v-icon> Add Email
+              </v-icon> {{ $t('createContactModal.buttons.addEmail') }}
             </v-btn>
           </v-row>
         </v-form>
@@ -106,18 +115,20 @@
       <v-card-actions>
         <v-spacer />
         <v-btn
+          id="cancel-button"
           color="blue darken-1"
           text
           @click="close"
         >
-          Cancel
+          {{ $t('createContactModal.buttons.cancel') }}
         </v-btn>
         <v-btn
+          id="save-contact-button"
           color="blue darken-1"
           text
           @click="saveContact"
         >
-          Save
+          {{ $t('createContactModal.buttons.save') }}
         </v-btn>
       </v-card-actions>
     </v-card>

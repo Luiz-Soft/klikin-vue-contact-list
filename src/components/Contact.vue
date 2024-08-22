@@ -1,15 +1,17 @@
 <template>
   <v-card 
+    id="contact-card"
     elevation="3"
     width="40%"
     class="custom-card"
   >
-    <v-card-title class="custom-title">
+    <v-card-title id="contact-name" class="custom-title">
       {{ editedContact.lastname.toUpperCase() }}, {{ editedContact.firstname }} 
     </v-card-title>
     <v-card-text>
       <v-form ref="form">
         <v-text-field
+          id="contact-firstname"
           v-model="editedContact.firstname"
           :label="$t('contact.firstName')"
           :readonly="!isEditing"
@@ -19,6 +21,7 @@
           class="custom-input-field"
         />
         <v-text-field
+          id="contact-lastname"
           v-model="editedContact.lastname"
           :label="$t('contact.lastName')"
           outlined
@@ -32,6 +35,7 @@
           v-for="(phone, index) in editedContact.phoneNumber"
           :key="'phone-' + index"
           class="custom-input-field"
+          :id="'phone-' + index"
         >
           <v-row
             no-gutters
@@ -39,6 +43,7 @@
           >
             <v-col>
               <v-text-field
+                :id="'phone-input-' + index"
                 :value="phone"
                 :label="$t('contact.phoneNumber')"
                 outlined
@@ -53,6 +58,7 @@
             <v-col cols="auto">
               <v-btn
                 v-if="isEditing"
+                :id="'remove-phone-' + index"
                 icon
                 @click="removePhoneNumber(index)"
               >
@@ -66,6 +72,7 @@
           v-for="(email, index) in editedContact.email"
           :key="'email-' + index"
           class="custom-input-field"
+          :id="'email-' + index"
         >
           <v-row
             no-gutters
@@ -74,6 +81,7 @@
           >
             <v-col>
               <v-text-field
+                :id="'email-input-' + index"
                 :value="email"
                 :label="$t('contact.email')"
                 outlined
@@ -87,6 +95,7 @@
             <v-col cols="auto">
               <v-btn
                 v-if="isEditing"
+                :id="'remove-email-' + index"
                 icon
                 @click="removeEmail(index)"
               >
@@ -101,6 +110,7 @@
         >
           <v-btn
             v-if="isEditing"
+            id="add-phone-button"
             class="custom-button"
             rounded
             dark
@@ -113,6 +123,7 @@
 
           <v-btn
             v-if="isEditing"
+            id="add-email-button"
             class="custom-button"
             dark
             rounded
@@ -129,6 +140,7 @@
         >
           <v-btn
             v-if="!isEditing"
+            id="edit-contact-button"
             icon
             @click="toggleEdit"
           >
@@ -136,6 +148,7 @@
           </v-btn>
           <v-btn
             v-if="!isEditing"
+            id="delete-contact-button"
             icon
             @click="deleteContact"
           >
@@ -147,6 +160,7 @@
     <v-card-actions v-if="isEditing">
       <v-spacer />
       <v-btn
+        id="cancel-edit-button"
         color="blue darken-1"
         text
         @click="cancelEdit"
@@ -154,6 +168,7 @@
         {{ $t('contact.cancel') }}
       </v-btn>
       <v-btn
+        id="save-contact-button"
         color="blue darken-1"
         text
         @click="saveContact"

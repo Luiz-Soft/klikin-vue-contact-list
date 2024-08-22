@@ -15,6 +15,24 @@
     "searchPlaceholder": "Rechercher un contact...",
     "newContactButton": "Nouveau Contact"
   },
+  "createContactModal": {
+    "title": {
+      "edit": "Modifier le Contact",
+      "add": "Ajouter un Nouveau Contact"
+    },
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "phoneNumber": "Numéro de Téléphone",
+      "email": "Adresse Électronique"
+    },
+    "buttons": {
+      "addPhone": "Ajouter un Téléphone",
+      "addEmail": "Ajouter un E-mail",
+      "cancel": "Annuler",
+      "save": "Enregistrer"
+    }
+  },
   "validation": {
     "email": "L'e-mail doit être valide",
     "phone": "Le numéro de téléphone doit être valide",

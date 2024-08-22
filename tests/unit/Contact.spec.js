@@ -15,15 +15,9 @@ describe('Contact.vue', () => {
     wrapper = shallowMount(Contact, {
       propsData: { contact },
       mocks: {
-        $t: (msg) => msg, // Mock the $t function for i18n
+        $t: (msg) => msg,
       },
-      stubs: ['v-form'], // Stub the v-form component
     });
-
-    // Mock the $refs.form.validate method
-    wrapper.vm.$refs.form = {
-      validate: jest.fn().mockReturnValue(true),
-    };
   });
 
   it('renders the component correctly', () => {
@@ -48,4 +42,5 @@ describe('Contact.vue', () => {
     wrapper.vm.deleteContact();
     expect(wrapper.emitted()['delete-contact']).toBeTruthy();
   });
+
 });

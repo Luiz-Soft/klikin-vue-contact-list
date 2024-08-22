@@ -22,5 +22,23 @@
     "selectLanguage": "Idioma",
     "title": "Seleccionar Idioma",
     "close": "Cerrar"
+  },
+  "createContactModal": {
+    "title": {
+      "edit": "Editar Contacto",
+      "add": "Agregar Nuevo Contacto"
+    },
+    "form": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "phoneNumber": "Número de Teléfono",
+      "email": "Correo Electrónico"
+    },
+    "buttons": {
+      "addPhone": "Agregar Teléfono",
+      "addEmail": "Agregar Correo Electrónico",
+      "cancel": "Cancelar",
+      "save": "Guardar"
+    }
   }
 }

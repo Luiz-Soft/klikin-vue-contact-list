@@ -4,7 +4,7 @@
       id="search-add-container"
       class="search-add-container"
     >
-      <LanguageSwitcher /><!-- This language switcher component is here just because there is no navbar component yet-->
+      <LanguageSwitcher id="language-switcher"/><!-- This language switcher component is here just because there is no navbar component yet-->
       <input 
         id="search-contact" 
         v-model="searchQuery"
@@ -14,6 +14,7 @@
       >
      
       <v-btn
+        id="new-contact-button"
         color="primary"
         dark
         rounded
@@ -31,9 +32,11 @@
         :contact="contact"
         @update-contact="updateContact"
         @delete-contact="deleteContact"
+        :id="'contact-' + contact.id"
       />
     </div>
     <CreateContactModal
+      id="create-contact-modal"
       :dialog="showCreateContactModal"
       @close="showCreateContactModal = false"
       @add-contact="addContact"
