@@ -1,5 +1,8 @@
 <template>
-  <div id="app" data-app="true">
+  <div
+    id="app"
+    data-app="true"
+  >
     <ContactList 
       :contacts="contactsSortedByLastname" 
       @add-contact="addContact"
@@ -23,15 +26,15 @@ export default {
       contacts: []
     };
   },
-  created() {
-    this.fetchContacts();
-  },
   computed: {
     contactsSortedByLastname() {
       return this.contacts.slice().sort((a, b) => {
         return a.lastname.localeCompare(b.lastname);
       });
     }
+  },
+  created() {
+    this.fetchContacts();
   },
   methods: {
     async fetchContacts() {
@@ -61,6 +64,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: azure;
+  min-height: 100vh
 }
 </style>

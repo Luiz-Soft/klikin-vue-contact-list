@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="search-add-container">
+    <div
+      id="search-add-container"
+      class="search-add-container"
+    >
       <input 
         id="search-contact" 
         v-model="searchQuery"
@@ -16,7 +19,7 @@
       >
         <v-icon left>
           mdi-plus
-        </v-icon>         Add Contact
+        </v-icon>         New Contact
       </v-btn>
     </div>
     <div id="contacts-container">
@@ -105,8 +108,7 @@ export default {
     align-items: center;
     gap: 10px; 
     margin-bottom: 20px;
-    padding: 0 15px;
-
+    padding: 17px 15px 0;
     @media (max-width: 600px) { 
       flex-direction: column;
       gap: 15px;

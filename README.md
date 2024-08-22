@@ -1,14 +1,14 @@
 ## Qué hay que hacer
 Crear una aplicación básica de gestión de contactos.
 
-- importar el array inicial de contactos de `./assets/contacts.json`
-- pasar contactos al componente de ContactList como una propiedad.
-- mostrar listado de usuarios en su totalidad
-- ordenar inicialmente los contactos por el key `lastname` de forma ascendente
-- añadir un campo de búsqueda (input text) para filtrar el listado de contactos por `name`, `lastname`, `email` y `phone`
-- iniciar la app con el campo de búsqueda en autofocus
-- implementar la creación y actualización de contactos nuevos (validar el campo `email`)
-- los campos `phone` y `email` serán un array que podrá contener N items
+- [ok] importar el array inicial de contactos de `./assets/contacts.json`
+- [ok] pasar contactos al componente de ContactList como una propiedad.
+- [ok] mostrar listado de usuarios en su totalidad
+- [ok] ordenar inicialmente los contactos por el key `lastname` de forma ascendente
+- [ok] añadir un campo de búsqueda (input text) para filtrar el listado de contactos por `name`, `lastname`, `email` y `phone`
+- [ok] iniciar la app con el campo de búsqueda en autofocus
+- [ok] implementar la creación y actualización de contactos nuevos (validar el campo `email`)
+- [ok] los campos `phone` y `email` serán un array que podrá contener N items
 
 ## Qué vamos a valorar
 - limpieza del código y organización
