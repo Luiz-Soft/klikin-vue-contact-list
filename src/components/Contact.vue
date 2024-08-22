@@ -5,7 +5,7 @@
     class="custom-card"
   >
     <v-card-title class="custom-title">
-      {{ editedContact.lastname }} {{ editedContact.firstname }} 
+      {{ editedContact.lastname.toUpperCase() }} {{ editedContact.firstname }} 
     </v-card-title>
     <v-card-text>
       <v-form ref="form">
