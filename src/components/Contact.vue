@@ -269,31 +269,3 @@ margin: 5px;
 }
 
 </style>
-
-<style>
-.custom-card {
-  padding: 16px;
-  margin-bottom: 16px;
-  margin: 10px;
-  min-width: 300px;
-}
-
-.custom-title {
-  text-align: center;
-  font-size: 24px;
-}
-
-.custom-input-field {
-  margin-bottom: 16px;
-}
-
-.add-buttons-row {
-  justify-content: center;
-  padding-bottom: 35px;
-}
-
-.custom-button {
-margin: 5px;
-}
-
-</style>
