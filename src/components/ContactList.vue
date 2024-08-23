@@ -4,7 +4,7 @@
       id="search-add-container"
       class="search-add-container"
     >
-      <LanguageSwitcher id="language-switcher"/><!-- This language switcher component is here just because there is no navbar component yet-->
+      <LanguageSwitcher id="language-switcher" /><!-- This language switcher component is here just because there is no navbar component yet-->
       <input 
         id="search-contact" 
         v-model="searchQuery"
@@ -28,11 +28,11 @@
     <div id="contacts-container">
       <Contact 
         v-for="contact in filteredContacts"
+        :id="'contact-' + contact.id"
         :key="contact.id"
         :contact="contact"
         @update-contact="updateContact"
         @delete-contact="deleteContact"
-        :id="'contact-' + contact.id"
       />
     </div>
     <CreateContactModal
@@ -47,14 +47,14 @@
 <script>
 import Contact from './Contact.vue'; 
 import CreateContactModal from './CreateContactModal.vue';
-import LanguageSwitcher from '@/components/LanguageSwitcher.vue'; // Import the LanguageSwitcher
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue'; 
 
 export default {
   name: "ContactList",
   components: {
     Contact,
     CreateContactModal,
-    LanguageSwitcher,  // Register the LanguageSwitcher component
+    LanguageSwitcher, 
   },
   props: {
     contacts: {
@@ -118,7 +118,8 @@ export default {
     @media (max-width: 600px) { 
       flex-direction: column;
       gap: 15px;
-      padding: 0 10px;
+      padding:  10px;
+
     }
   }
 

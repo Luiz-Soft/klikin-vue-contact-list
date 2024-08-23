@@ -2,7 +2,7 @@ import axios from 'axios';
 import contacts from "@/assets/contacts.json";
 
 
-//---------------------------------------------------------only for testing purporses
+//---------------------------------------------------------only for prototyping purporses
 // Mock the GET request to the contacts API to return the mocked contacts from the json
 import MockAdapter from 'axios-mock-adapter';
 const mock = new MockAdapter(axios);

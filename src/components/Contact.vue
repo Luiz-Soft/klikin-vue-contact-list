@@ -5,7 +5,10 @@
     width="40%"
     class="custom-card"
   >
-    <v-card-title id="contact-name" class="custom-title">
+    <v-card-title
+      id="contact-name"
+      class="custom-title"
+    >
       {{ editedContact.lastname.toUpperCase() }}, {{ editedContact.firstname }} 
     </v-card-title>
     <v-card-text>
@@ -33,9 +36,9 @@
 
         <div
           v-for="(phone, index) in editedContact.phoneNumber"
+          :id="'phone-' + index"
           :key="'phone-' + index"
           class="custom-input-field"
-          :id="'phone-' + index"
         >
           <v-row
             no-gutters
@@ -70,9 +73,9 @@
 
         <div
           v-for="(email, index) in editedContact.email"
+          :id="'email-' + index"
           :key="'email-' + index"
           class="custom-input-field"
-          :id="'email-' + index"
         >
           <v-row
             no-gutters
